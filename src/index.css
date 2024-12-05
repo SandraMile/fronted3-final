@@ -7,58 +7,122 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body.light {
+  background-color: white;
+  color: black;
+}
+
+body.dark {
+  background-color: #121212;
+  color: white;
+  margin: 0;
+}
+
+.card-image {
+  width: 200px; 
+  height: auto; /* Mantiene la proporción de la imagen */
+  margin-bottom: 1px;
+  border-radius: 5px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.favButton{
+.favButton {
   background-color: rgba(136, 136, 136, 0.116);
   padding: 10px;
-  border: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   width: 100%;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  color: #ffcc00; /* Color amarillo para la estrella */
+  transition: all 0.3s ease-in-out;
+}
+
+.favButton-active {
+  background-color: #ffcc00; /* Fondo amarillo para indicar activo */
+  color: white; /* Color blanco para la estrella activa */
+}
+
+.favButton:hover {
+  background-color: rgba(136, 136, 136, 0.3);
+  color: #ff9900; /* Cambiar el color al pasar el cursor */
+}
+
+.favButton-active:hover {
+  background-color: #ffc107; /* Color más claro al pasar el cursor */
+  color: white;
+}
+
+/* Estilo general para main */
+main {
+  padding: 20px; 
+}
+
+/* Estilo para h1 dentro de main */
+main h1 {
+  margin-top: 0; 
+  text-align: center;
+}
+
+/* Especificidad para modo oscuro */
+main.dark h1 {
+  margin-top: 0 !important;
+  color: white !important;
+}
+
+/* Especificidad para modo claro */
+main.light h1 {
+  margin-top: 0;
+  color: black; /* Color visible en modo día */
 }
 
 h1{
   text-align: center;
+  margin-top: 0;
+  color: inherit; 
 }
 
-nav{
+/* Modo noche para h1 */
+body.dark h1 {
+  margin-top: 0;
+  color: white;
+}
+
+nav {
   display: flex;
-  width: 80vw;
-  justify-content: flex-start;
-  padding: 1rem;
+  justify-content: space-between; /* Espacia los elementos */
+  align-items: center; /* Alinea verticalmente los elementos */
+  padding: 0 2rem; /* Ajusta el espacio entre el logo y los enlaces */
+  background-color: #121212; /* Fondo claro */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  margin: 0;
+  padding: 1.5rem 2rem;
 }
 
-a{
-  color: #000;
-  text-decoration: none;
-  margin: 5px;
-  cursor: pointer;
-}
-a:hover{
-  color: rgb(136, 136, 136);
-} 
-
-footer {
+/* Estilo general del Navbar */
+.navbar {
   display: flex;
   justify-content: center;
-  text-align: center;
-  padding: 2rem;
-  position: relative;
-  bottom: 0;
-  width: 90%;
-  height: 40px;
-  margin-top: 2rem;
+  align-items: center;
+  width: 100%;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem 0;
 }
 
-footer > img{
-  width: 200px;
-  margin: 0;
-}
-footer > p{
-  margin: 0;
-  padding-top: 0.7rem;
+.navbar.dark {
+  background-color: #121212;
+  color: white;
+  margin-bottom: -20px;
 }
 
 form{
@@ -113,10 +177,237 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-.dark{
-  background-color: #12121296;
-  color: white;
+
+body.light nav {
+  background-color: #f8f9fa;
+  color: #000;
 }
+
+body.dark nav {
+  background-color: #333;
+  color: #fff;
+}
+
+.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.dark {
+  background-color: #515151;
+  color: #ffffff;
+}
+
 .dark > a {
   color: white;
 }
+/* Contenedor interno del Navbar */
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%; /* Alinea el contenido con las cards */
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 1rem;
+}
+
+/* Logo del Navbar */
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #d32f2f;
+  margin: 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem; /* Espacio entre los enlaces */
+}
+
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1rem;
+}
+
+.nav-link:hover {
+  color: gray;
+}
+
+nav a {
+  text-decoration: none;
+  color: #000; 
+  font-weight: bold;
+  margin: 0 15px; 
+}
+
+nav a:hover {
+  color: #d32f2f; 
+}
+
+nav .nav-logo {
+  font-size: 24px; /* Tamaño del texto del logo */
+  font-weight: bold;
+  color: #d32f2f; /* Color rojo */
+}
+
+.logo {
+  font-size: 24px; /* Ajusta el tamaño de la fuente según sea necesario */
+  font-weight: bold;
+  color: inherit; /* Hereda el color del tema (claro u oscuro) */
+}
+
+.logo .red {
+  color: red; /* Aplica el color rojo solo a la "D", esto no cambia */
+}
+
+
+.theme-icon {
+  margin-left: 1rem;
+}
+
+/* Botón de cambio de tema */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.theme-toggle.light {
+  background-color: black;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle.dark {
+   background-color: white;
+  color: black;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
+}
+
+nav button {
+  background-color: transparent; //* Fondo transparente */
+  color: inherit; /* Hereda el color del tema */
+  border: none; 
+  font-size: 20px; /* Tamaño del ícono */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+nav button:hover {
+  transform: scale(1.2); /* Efecto de zoom al pasar el cursor */
+}
+
+footer {
+  margin-top: 0;
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out; /* Transición suave entre temas */
+}
+
+.footer.light {
+  margin-top: 0;
+  background-color: #f9f9f9; /* Fondo claro para el modo día */
+  color: #000; /* Texto negro */
+}
+
+.footer.dark {
+  background-color: #2c2c2c; /* Fondo oscuro */
+  color: white; /* Texto en blanco */
+}
+
+.footer-top {
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  padding: 5px 0;
+  font-size: 14px;
+  width: 100%;
+  position: relative; 
+  left: 0; 
+  margin: 0;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.footer-logo img {
+  width: 230px;
+  height: auto;
+}
+
+.footer-icons {
+  display: flex;
+  gap: 15px; /* Espaciado entre íconos */
+}
+
+.footer-icons img {
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: filter 0.3s ease;
+}
+
+.footer.dark .footer-icons img {
+  filter: none; /* Mantener el color original (blanco) en modo noche */
+}
+
+.footer.light .footer-icons img {
+  filter: invert(1); /* Invertir el color para que sean visibles en modo día */
+}
+
+.footer-icons img:hover {
+  transform: scale(1.1); /* Agrega un efecto al pasar el cursor */
+}
+
+.footer.dark .footer-logo img {
+  filter: invert(1); /* Invertir colores para la imagen DH */
+}
+
+.card a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold; /* Enlaces en negrita */
+}
+
+/* Hover de enlaces en las cards */
+.card a:hover {
+  color: gray; /* Color gris claro para ambos modos */
+  transition: color 0.3s ease-in-out; /* Transición suave */
+}
+
+body.light .card a {
+  color: black; /* Color en modo claro */
+}
+
+body.dark .card a {
+  color: white; /* Color en modo oscuro */
+}
+
+body.light .card a:hover {
+  color: rgb(136, 136, 136); /* Hover en modo claro */
+}
+
+body.dark .card a:hover {
+  color: lightgray; /* Hover en modo oscuro */
+}
+
